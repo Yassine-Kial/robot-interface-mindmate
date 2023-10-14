@@ -14,10 +14,6 @@ function App() {
         <Route path="/Games" element={<Games />} />
         <Route path="/MatchingPairs" element={<MatchingPairs />} />
                 <Route path="/Live" element={<Live />} />
-
-
-
-
       </Routes>
     </Router>
   );

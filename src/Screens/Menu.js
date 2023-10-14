@@ -24,6 +24,17 @@ const  navigate = useNavigate();
         navigate('/Live');
     }
 
+    const runPythonCode = () => {
+            fetch('http://192.168.10.34:5000/run-python-code')
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // This will log the response from the Python code
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
+
     return (
         <div>
 
@@ -39,12 +50,8 @@ const  navigate = useNavigate();
                 <p className='header-text'>Menu</p>
             </div>
             </div>   
-
-
-
             <div className='menu'>
-
-                <div className="func">
+                <div className="func" onClick={runPythonCode}>
                     <Func1/>
                 </div>
                 <div className="func" onClick={handleStartClick}>
