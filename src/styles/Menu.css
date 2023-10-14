@@ -1,0 +1,20 @@
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 70px;
+}
+
+
+.func {
+    cursor: pointer;
+}
+
+.func:hover {
+    opacity: 0.9;
+}
+
+.func:active {
+    opacity: 0.8;
+}
