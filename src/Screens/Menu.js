@@ -51,7 +51,10 @@ const  navigate = useNavigate();
             </div>
             </div>   
             <div className='menu'>
-                <div className="func" onClick={runPythonCode}>
+                <div className="func" onClick={() => {
+  runPythonCode(); // Call the existing function
+  live(); // Call the additional function
+}}>
                     <Func1/>
                 </div>
                 <div className="func" onClick={handleStartClick}>
