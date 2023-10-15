@@ -4,7 +4,7 @@ import video from '../assets/talking.mp4';
 class VideoPlayer extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <video src={video} width="800" height="480" autoPlay loop>
         </video>
       </div>
