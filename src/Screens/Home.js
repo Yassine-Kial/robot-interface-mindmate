@@ -11,10 +11,46 @@ function Home(props)
 
 
 
- const  navigate = useNavigate();
+   const sendNotification = (title, content, backgroundColor) =>
+    {
+       
+        const currentTime = new Date();
 
-  // You can now use the 'history' object to navigate to other pages
-  const handleStartClick = () => {
+  // Format the time as 'HH:mm'
+  const hours = currentTime.getHours().toString().padStart(2, '0');
+  const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+  const formattedTime = `${hours}:${minutes}`;
+  const notificationData = {
+    title,
+    content,
+    time: formattedTime,
+    backgroundColor,
+  };
+
+  console.log('Notification Data:', notificationData);
+
+  fetch('http://localhost:5000/storeNotification', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(notificationData),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Message from the server
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+};
+
+  
+
+const  navigate = useNavigate();
+    const handleStartClick = () =>
+    {
+        sendNotification('Activity Alert','Yassine just started playing with Memento','pink');
     navigate('/Menu');
   };
     return (
@@ -29,15 +65,10 @@ function Home(props)
                     <Pellets/>
                 </div>   
             </div>
-
-
             <div className='button-container'>
                 <button className='start-Button' onClick={handleStartClick}>
                 <p className='button-text'>Start</p></button>
             </div>
-
-
-
             <div className='slogon-container'>
                 <Bar1 className='bar1' />
                 <p className='slogon-text'>Together,Transforming <span className='text-highlight'>Alzheimer</span>’s Care</p>

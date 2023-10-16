@@ -11,14 +11,50 @@ import { useNavigate } from 'react-router-dom';
 
 function Menu(props)
 {
+
+
+    const sendNotification = (title, content, backgroundColor) =>
+    {
+       
+        const currentTime = new Date();
+
+  // Format the time as 'HH:mm'
+  const hours = currentTime.getHours().toString().padStart(2, '0');
+  const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+  const formattedTime = `${hours}:${minutes}`;
+  const notificationData = {
+    title,
+    content,
+    time: formattedTime,
+    backgroundColor,
+  };
+
+  console.log('Notification Data:', notificationData);
+
+  fetch('http://localhost:5000/storeNotification', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(notificationData),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Message from the server
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+};
     
 const  navigate = useNavigate();
 
   // You can now use the 'history' object to navigate to other pages
-  const handleStartClick = () => {
+    const handleStartClick = () =>
+    {
+    sendNotification('Activity Alert', 'Yassine is navigating the games menu', 'blue');
     navigate('/Games');
   };
-    
     const live = () =>
     {
         navigate('/Live');
@@ -51,7 +87,9 @@ const  navigate = useNavigate();
             </div>
             </div>   
             <div className='menu'>
-                <div className="func" onClick={() => {
+                <div className="func" onClick={() =>
+                {
+                    sendNotification('Activity Alert', 'Yassine is interacting with the voice assistance', 'orange');
   runPythonCode(); // Call the existing function
   live(); // Call the additional function
 }}>

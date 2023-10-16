@@ -17,10 +17,56 @@ function Games(props)
   const handleStartClick = () => {
       navigate(-1);
   };
-    const match = () =>
+    const match1 = () =>
     {
+        sendNotification('Game Alert','Yassine is playing Matching Pairs','green');
         navigate('/MatchingPairs');
     }
+
+    const match2 = () =>
+    {
+        sendNotification('Game Alert','Yassine is playing Maze Game ','red');
+        navigate('/MatchingPairs');
+    }
+
+    const match3 = () =>
+    {
+        sendNotification('Game Alert','Yassine is playing Puzzle Game','purple');
+        navigate('/MatchingPairs');
+    }
+    const sendNotification = (title, content, backgroundColor) =>
+    {
+       
+        const currentTime = new Date();
+
+  // Format the time as 'HH:mm'
+  const hours = currentTime.getHours().toString().padStart(2, '0');
+  const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+  const formattedTime = `${hours}:${minutes}`;
+  const notificationData = {
+    title,
+    content,
+    time: formattedTime,
+    backgroundColor,
+  };
+
+  console.log('Notification Data:', notificationData);
+
+  fetch('http://localhost:5000/storeNotification', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(notificationData),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Message from the server
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+};
     return (
 
         <div>
@@ -55,14 +101,14 @@ function Games(props)
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-                <SwiperSlide onClick={match}>
+                <SwiperSlide onClick={match1}>
                     <GameCard title={"Matching Pairs"} backgroundColor={"blue"}/>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <GameCard title={"Matching Pairs"} backgroundColor={"red"}/>
+                <SwiperSlide onClick={match2}>
+                    <GameCard title={"Maze Game"} backgroundColor={"red"}/>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <GameCard title={"Matching Pairs"} backgroundColor={"green"}/>
+                <SwiperSlide onClick={match3}>
+                    <GameCard title={"Puzzle Game"} backgroundColor={"green"}/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <GameCard title={"Matching Pairs"} backgroundColor={"orange"}/>
