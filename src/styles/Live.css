@@ -1,4 +1,10 @@
-.videohaha {
+.gif {
+    margin-left:  50;
+}
+
+.gifContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 470px;
 }
