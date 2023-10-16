@@ -61,7 +61,7 @@ const  navigate = useNavigate();
     }
 
     const runPythonCode = () => {
-            fetch('http://192.168.10.34:5000/run-python-code')
+            fetch('http://192.168.10.34:4999/run-python-code')
             .then(response => response.text())
             .then(data => {
                 console.log(data); // This will log the response from the Python code
