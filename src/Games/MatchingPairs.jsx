@@ -4,17 +4,11 @@ import '../styles/SingleCard.css';
 import '../styles/Games.css';
 import helmet from '../assets/helmet-1.png';
 import potion from '../assets/potion-1.png';
-
 import ring from '../assets/ring-1.png';
-
 import scroll from '../assets/scroll-1.png';
-
 import shield from '../assets/shield-1.png';
-
 import sword from '../assets/sword-1.png';
-
 import Modal from '../Components/Modal';
-
 import { useNavigate } from 'react-router-dom';
 
 const cardImages = [
@@ -25,17 +19,13 @@ const cardImages = [
   { src: shield, matched: false },
   { src: sword, matched: false },
 ];
-
 function MatchingPairs()
 {
-
   const  navigate = useNavigate();
   // You can now use the 'history' object to navigate to other pages
   const handleStartClick = () => {
       navigate('/Menu');
   };
-    
-
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)

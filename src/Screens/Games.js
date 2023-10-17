@@ -26,13 +26,19 @@ function Games(props)
     const match2 = () =>
     {
         sendNotification('Game Alert','Yassine is playing Maze Game ','red');
-        navigate('/MatchingPairs');
+        navigate('/MatchingCards');
     }
 
     const match3 = () =>
     {
         sendNotification('Game Alert','Yassine is playing Puzzle Game','purple');
-        navigate('/MatchingPairs');
+        navigate('/RockPaperScissor');
+    }
+
+    const match4 = () =>
+    {
+        sendNotification('Game Alert','Yassine is playing Puzzle Game','purple');
+        navigate('/TicTacGame');
     }
     const sendNotification = (title, content, backgroundColor) =>
     {
@@ -110,7 +116,7 @@ function Games(props)
                 <SwiperSlide onClick={match3}>
                     <GameCard title={"Puzzle Game"} backgroundColor={"green"}/>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide onClick={match4}>
                     <GameCard title={"Matching Pairs"} backgroundColor={"orange"}/>
                 </SwiperSlide>
                 <SwiperSlide>
