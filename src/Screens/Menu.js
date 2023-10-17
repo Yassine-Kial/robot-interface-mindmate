@@ -4,7 +4,6 @@ import Logo2 from '../assets/Logo2';
 import HoriRect from '../assets/HoriRect';
 import Func1 from '../assets/Func1';
 import Func2 from '../assets/Func2';
-import Func3 from '../assets/Func3';
 import '../styles/Menu.css';
 import { useNavigate } from 'react-router-dom';
 
