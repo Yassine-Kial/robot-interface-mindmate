@@ -100,9 +100,7 @@ const  navigate = useNavigate();
 
                                 </div>
 
-                                <div className="func" onClick={live}>                    <Func3/>
-</div>
-
+                            
 
 
 
