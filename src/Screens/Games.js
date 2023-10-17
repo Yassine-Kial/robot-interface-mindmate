@@ -111,10 +111,10 @@ function Games(props)
                     <GameCard title={"Matching Pairs"} backgroundColor={"blue"}/>
                 </SwiperSlide>
                 <SwiperSlide onClick={match2}>
-                    <GameCard title={"Maze Game"} backgroundColor={"red"}/>
+                    <GameCard title={"Matching Items"} backgroundColor={"red"}/>
                 </SwiperSlide>
                 <SwiperSlide onClick={match3}>
-                    <GameCard title={"Puzzle Game"} backgroundColor={"green"}/>
+                    <GameCard title={"Tic Tac Toe"} backgroundColor={"green"}/>
                 </SwiperSlide>
                 <SwiperSlide onClick={match4}>
                     <GameCard title={"Matching Pairs"} backgroundColor={"orange"}/>
